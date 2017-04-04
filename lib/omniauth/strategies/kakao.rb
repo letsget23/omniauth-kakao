@@ -20,7 +20,7 @@ module OmniAuth
           nickname = raw_properties['nickname']
           thumbnail_image = raw_properties['thumbnail_image']
         end
-        
+
         {
           'name' => nickname,
           'image' => thumbnail_image,
@@ -38,7 +38,7 @@ module OmniAuth
 
       def callback_phase
         previous_callback_path = options.delete(:callback_path)
-        @env["PATH_INFO"] = "/auth/kakao/callback"
+        @env["PATH_INFO"] = "/users/auth/kakao/callback"
         options[:callback_path] = previous_callback_path
         super
       end
