@@ -16,9 +16,14 @@ module OmniAuth
       uid { raw_info['id'].to_s }
 
       info do
+        if raw_properties.present?
+          nickname = raw_properties['nickname']
+          thumbnail_image = raw_properties['thumbnail_image']
+        end
+        
         {
-          'name' => raw_properties['nickname'],
-          'image' => raw_properties['thumbnail_image'],
+          'name' => nickname,
+          'image' => thumbnail_image,
         }
       end
 
